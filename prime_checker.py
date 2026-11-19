@@ -14,8 +14,17 @@ def is_prime(n):
 
 
 if __name__ == "__main__":
-    num = int(input("请输入一个正整数: "))
-    if is_prime(num):
-        print(f"{num} 是素数")
-    else:
-        print(f"{num} 不是素数")
+    while True:
+        text = input("请输入一个正整数（输入 q 退出）: ")
+        if text.strip().lower() == "q":
+            print("程序已退出")
+            break
+        try:
+            num = int(text)
+        except ValueError:
+            print("输入无效，请输入一个整数")
+            continue
+        if is_prime(num):
+            print(f"{num} 是素数")
+        else:
+            print(f"{num} 不是素数")
